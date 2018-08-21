@@ -1,0 +1,117 @@
+/**index.wxss**/
+
+page {
+  position: relative;
+  height: 100%;
+}
+
+.container {
+  padding: 15rpx;
+  padding-bottom: 0rpx;
+  box-sizing: border-box;
+}
+
+.banner {
+  height: 330rpx;
+}
+
+.banner-item {
+  height: 100%;
+}
+
+.banner-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 游戏列表 */
+
+.games {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.games .games-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 5rpx;
+}
+
+.games .center {
+  flex: 1;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.games .center .top {
+  display: flex;
+  align-items: baseline;
+}
+
+.games .center .top .title {
+  flex: 1;
+  font-size: 10pt;
+  font-weight: 700;
+  color: black;
+}
+
+.games .center .top .amount {
+  font-size: 8pt;
+  margin-left: 10rpx;
+}
+
+.games .center .top .amount .num {
+  color: #fba000;
+  font-size: 8pt;
+}
+
+.games .center .desc {
+  font-size: 9pt;
+  margin-top: 6rpx;
+}
+
+.games .start {
+  color: #fff;
+  background: #2e9b2a;
+  border-radius: 5rpx;
+  font-size: 10pt;
+  padding: 15rpx 30rpx;
+}
+
+/* 分享按钮 */
+
+.share {
+  display: inline;
+  position: fixed;
+  bottom: 150rpx;
+  left: 0rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.share button {
+  padding: 15rpx 40rpx 15rpx 15rpx;
+  background: #09bb07;
+  color: #fff;
+  font-size: 9pt;
+  display: inline;
+  border-top-left-radius: 5rpx;
+  border-bottom-left-radius: 5rpx;
+}
+
+.share button::after {
+  border: none;
+}
+
+.share image {
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 20rpx;
+}
