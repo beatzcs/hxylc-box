@@ -1,0 +1,140 @@
+/* pages/welfare/welfare.wxss */
+
+page {
+  height: 100%;
+}
+
+.container {
+  padding-bottom: 0rpx;
+  box-sizing: border-box;
+  color: #353535;
+  background-color: #fff;
+}
+
+.banner {
+  height: 260rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.banner-item {
+  height: 100%;
+}
+
+.banner-navi {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 任务领积分 */
+
+.task {
+  font-size: 11pt;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.task-title {
+  border-bottom: 1rpx solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  color: #7a7e83;
+  font-size: 12pt;
+}
+
+.task-title .more-task {
+  color: #bdbdbd;
+  display: flex;
+  align-items: center;
+}
+
+.task-title .more-task image {
+  width: 14rpx;
+  height: 25rpx;
+  margin-left: 2rpx;
+}
+
+.task-item {
+  display: flex;
+  padding: 15rpx 0;
+  margin: 0 20rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.task-item image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.task-item .task-desc {
+  height: 120rpx;
+  padding: 5rpx 15rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #313538;
+  font-size: 11pt;
+}
+
+.task-item .task-desc .gain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10pt;
+  color: #bdbdbd;
+}
+
+.task-item .task-btn {
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #ff685d;
+  color: #fff;
+  border-radius: 7rpx;
+  font-size: 11pt;
+  padding: 0 35rpx;
+  text-align: center;
+}
+
+/* 热门礼包 */
+
+.hot-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  justify-content: flex-start;
+  font-size: 10pt;
+}
+
+.hot-item {
+  display: flex;
+  margin-bottom: 15rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.hot-item image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+
+.hot-item .item-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 10rpx;
+}
+
+.hot-item .item-right .take {
+  border: 1rpx solid #ddd;
+  padding: 2rpx 6rpx;
+  border-radius: 5rpx;
+}

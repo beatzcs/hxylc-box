@@ -1,0 +1,62 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <swiper class="swipe" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{recAd}}" wx:for-item="item">
+      <swiper-item>
+        <view class="swipe-item">
+          <block wx:for="{{item}}" wx:for-item="items">
+            <navigator wx:if="{{items.appId}}" class="swipe-items" style="width:{{(window_width-10)/4}}px;" target="miniProgram" open-type="navigate" app-id="{{items.appId}}" version="release" extra-data="{{items}}" bindcomplete="doTask" bindsuccess="naviSuccess" bindfail="naviFail" data-gid="{{items.id}}">
+              <image src="{{items.icon}}" />
+              <text>{{items.title}}</text>
+            </navigator>
+          </block>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="tab-bar">
+    <view wx:for="{{tab_config.tabs}}" wx:key="unique" data-index="{{index}}" bindtap="handlerTabTap" class="tab {{tab_config.active_tab==index?'tab_config.tab-active':''}} " style="width: {{tab_config.item_width}}px;">
+      <text>{{item}}</text>
+    </view>
+    <view style="width: {{tab_config.item_width-tab_config.underline.margins}}px; left: {{tab_config.underline.offset+tab_config.underline.margins*1/2}}px;" class="under-line withAnimate"></view>
+  </view>
+
+  <swiper current="{{current}}" indicator-dots="{{false}}" class="swiper-bottom" style="height:{{window_height-170}}px;" bindchange="swiperChange">
+    <swiper-item class="swiper-bottom-item">
+      <scroll-view scroll-y style="height:100%;">
+        <block wx:for="{{recNice}}">
+          <navigator class="games" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}" bindcomplete="doTask" bindsuccess="naviSuccess" bindfail="naviFail" data-gid="{{item.id}}">
+            <image class="games-image" src="{{item.icon}}" />
+            <view class="center">
+              <view class="top">
+                <text class="title text-one">{{item.title}}</text>
+                <!-- <text class="amount"><text class="num">{{item.amount}}</text>万人在玩</text> -->
+              </view>
+              <text class="desc text-two">{{item.desc}}</text>
+            </view>
+            <button class="start">开始</button>
+            <!-- <text class="start">开始</text> -->
+          </navigator>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style="height:100%;">
+        <block wx:for="{{recCommon}}">
+          <navigator class="games" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}" bindcomplete="doTask" bindsuccess="naviSuccess" bindfail="naviFail" data-gid="{{item.id}}">
+            <image class="games-image" src="{{item.icon}}" />
+            <view class="center">
+              <view class="top">
+                <text class="title text-one">{{item.title}}</text>
+                <!-- <text class="amount"><text class="num">{{item.amount}}</text>万人在玩</text> -->
+              </view>
+              <text class="desc text-two">{{item.desc}}</text>
+            </view>
+            <text class="start">开始</text>
+          </navigator>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

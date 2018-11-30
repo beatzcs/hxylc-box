@@ -2,19 +2,21 @@
 <view class="container">
   <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
     <block wx:for="{{bannerList}}">
-      <swiper-item class="banner-item">
-        <image src="{{item}}" />
-      </swiper-item>
+      <navigator target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}">
+        <swiper-item class="banner-item">
+          <image src="{{item.img}}" />
+        </swiper-item>
+      </navigator>
     </block>
   </swiper>
 
   <block wx:for="{{gameList}}">
-    <navigator class="games" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="develop">
-      <image class="games-image" src="{{item.imageUrl}}" />
+    <navigator class="games" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}">
+      <image class="games-image" src="{{item.icon}}" />
       <view class="center">
-        <view class="top ">
+        <view class="top">
           <text class="title text-one">{{item.title}}</text>
-          <text class="amount"><text class="num">{{item.amout}}</text>万人在玩</text>
+          <text class="amount"><text class="num">{{item.amount}}</text>万人在玩</text>
         </view>
         <text class="desc text-two">{{item.desc}}</text>
       </view>

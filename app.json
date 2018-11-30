@@ -1,11 +1,44 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/home/home",
+    "pages/welfare/welfare",
+    "pages/mine/mine",
+    "pages/index/index",
+    "pages/welfare/tasklist/tasklist"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#eeeeee",
     "navigationBarTitleText": "火星游乐场",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "position": "bottom",
+    "backgroundColor": "#FFFFFF",
+    "color": "#7a7e83",
+    "selectedColor": "#ff685d",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "精品汇",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_select.png"
+      },
+      {
+        "pagePath": "pages/welfare/welfare",
+        "text": "福利",
+        "iconPath": "images/welfare.png",
+        "selectedIconPath": "images/welfare_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine_select.png"
+      }
+    ]
   }
 }

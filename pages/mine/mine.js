@@ -1,3 +1,4 @@
+// pages/mine/mine.js
 var app = getApp();
 Page({
 
@@ -5,30 +6,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-    circular: true,
-    bannerList: [],
-    gameList: []
+    boxUser: null,
+    mineList: [],
+    newList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
+  //  * pa?
    */
   onLoad: function(options) {
-    this.loadHomeData();
+
   },
 
-  loadHomeData: function() {
+  loadMineData: function() {
     let that = this;
-    app.HttpClient.getRequest(app.Func.HOME_DATA, null, function(res) {
-      wx.stopPullDownRefresh();
+    app.HttpClient.getRequest(app.Func.MINE + app.globalData.openId, function(res) {
       that.setData({
-        bannerList: res.data.bannerList,
-        gameList: res.data.gameList
+        boxUser: res.data.boxUser,
+        mineList: res.data.mine,
+        newList: res.data.recNew
       })
+    }, true)
+  },
+
+  /**
+   * 点击玩游戏
+   */
+  doTask: function(e) {
+    let that = this;
+    let gameId = e.currentTarget.dataset.gid;
+    let data = gameId ? {
+      gameId: gameId
+    } : null;
+    app.HttpClient.postRequest(app.Func.TASK_FINISH + app.globalData.openId, data, function(res) {
+      //console.log(res);
+    })
+  },
+
+  saveMini: function() {
+    wx.previewImage({
+      urls: ["http://image.mxqh666.com/small_game/box-yindao.gif"]
     })
   },
 
@@ -43,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.loadMineData();
   },
 
   /**
@@ -64,7 +82,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.loadHomeData();
+
   },
 
   /**
@@ -77,13 +95,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
-    if (res.from === 'button') {
-      
-    }
-    return {
-      title: '@我 发现了一款超好玩的游戏，快来玩吧！',
-      path: '/pages/index/index'
-    }
+  onShareAppMessage: function() {
+
   }
 })

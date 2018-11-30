@@ -1,15 +1,26 @@
 //app.js
-App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+import HttpClient from './utils/httpclient.js';
+import Func from "./utils/func.js"
 
+App({
+  onLaunch: function() {
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let that = this;
+        this.HttpClient.postRequest(this.Func.LOGIN + "/" + res.code, null, function(resu) {
+          that.globalData.openId = resu.data.openId;
+          that.globalData.sessionkey = resu.data.sessionkey;
+          console.log(resu.data.openId);
+          that.HttpClient.postRequest(that.Func.UPDATE_USER + "/" + resu.data.openId, {
+            openId: resu.data.openId,
+            nickName: "",
+            wxImg: ""
+          }, function(resul) {
+            console.log(resul)
+          }, true)
+        })
       }
     })
     // 获取用户信息
@@ -34,6 +45,23 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userId: null,
+    openId: null,
+    sessionkey: null,
+    appInfo: {
+      appId: "100",
+      appVerCode: "1",
+      appVerName: "1.0.1",
+      deviceId: null,
+      deviceModel: null,
+      osType: null,
+      osVersion: null,
+      platform: null,
+      platformVersion: null,
+      sdkVersion: null
+    }
+  },
+
+  HttpClient: HttpClient,
+  Func: Func,
 })

@@ -1,0 +1,22 @@
+<!--pages/welfare/tasklist/tasklist.wxml-->
+<view class="container">
+  <block wx:for="{{taskList}}">
+    <view class="task-item">
+      <image src="{{item.img}}" />
+      <view class="task-desc">
+        <text>{{item.name}}</text>
+        <view class="gain">
+          <text class="text-two">{{item.desc}}</text>
+        </view>
+      </view>
+      <button wx:if="{{item.isFinished==2}}" style="background-color:#ddd;" class="task-btn">完成</button>
+      <button wx:elif="{{item.isFinished==1}}" bindtap="doTask" data-tid="{{item.id+'-2'}}" data-gid="{{item.gameId}}" class="task-btn">领取</button>
+      <navigator wx:elif="{{item.type==1&&!item.isFinished}}" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}" bindcomplete="doTask" bindsuccess="naviSuccess" bindfail="naviFail" data-tid="{{item.id+'-1'}}"
+        data-gid="{{item.gameId}}">
+        <button class="task-btn">开始</button>
+      </navigator>
+      <button wx:elif="{{item.type==2}}" class="task-btn" bindtap="doTask" data-tid="{{item.id+'-1'}}">签到</button>
+      <button wx:elif="{{item.type==3}}" class="task-btn" open-type="share">分享</button>
+    </view>
+  </block>
+</view>

@@ -6,7 +6,7 @@ page {
 }
 
 .container {
-  padding: 15rpx;
+  padding: 14rpx;
   padding-bottom: 0rpx;
   box-sizing: border-box;
 }
@@ -29,7 +29,7 @@ page {
 .games {
   display: flex;
   align-items: center;
-  padding: 20rpx 0;
+  padding: 24rpx 0;
   border-bottom: 1rpx solid #ddd;
 }
 
@@ -77,10 +77,10 @@ page {
 
 .games .start {
   color: #fff;
-  background: #2e9b2a;
-  border-radius: 5rpx;
+  background: #1aad19;
+  border-radius: 7rpx;
   font-size: 10pt;
-  padding: 15rpx 30rpx;
+  padding: 14rpx 30rpx;
 }
 
 /* 分享按钮 */
@@ -96,7 +96,7 @@ page {
 
 .share button {
   padding: 15rpx 40rpx 15rpx 15rpx;
-  background: #09bb07;
+  background: #5cb51d;
   color: #fff;
   font-size: 9pt;
   display: inline;

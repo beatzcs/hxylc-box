@@ -1,0 +1,48 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <image class="bg_mine" src="/images/bg_mine.png" />
+  <text class="integral">积分: {{boxUser.score||0}}</text>
+  <view class="userinfo">
+    <view class="info">
+      <open-data class="headimg" type="userAvatarUrl"></open-data>
+      <open-data class="nickname" type="userNickName"></open-data>
+    </view>
+    <view class="btns">
+      <view class="save">
+        <image src="" />
+        <button bindtap="saveMini" hover-class="hove">保存小程序</button>
+      </view>
+      <view class="subscribe">
+        <image src="" />
+        <button open-type="contact" hover-class="hove">关注公众号</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="gamelist">
+    <view class="gametitle">我的游戏</view>
+    <view class="list" wx:if="{{mineList.length>0}}">
+      <block wx:for="{{mineList}}">
+        <navigator class="item" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}">
+          <image src="{{item.icon}}" />
+          <text>{{item.title}}</text>
+        </navigator>
+      </block>
+    </view>
+    <view wx:else class="nothing">
+      <text>您还没有玩过游戏</text>
+    </view>
+  </view>
+
+  <view class="gamelist" style="border-bottom:none;" wx:if="{{newList.length>0}}">
+    <view class="gametitle">新游推荐</view>
+    <view class="list">
+      <block wx:for="{{newList}}">
+        <navigator class="item" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" version="release" extra-data="{{item}}" bindcomplete="doTask" data-gid="{{item.id}}">
+          <image src="{{item.icon}}" />
+          <text>{{item.title}}</text>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>
